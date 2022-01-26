@@ -3,14 +3,30 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { SupermercadoComponent } from './supermercado/supermercado.component';
+import { AplicacionComponent } from './aplicacion/aplicacion.component';
+import { UsuarioComponent } from './usuario/usuario.component';
+
+import { LottieModule } from 'ngx-lottie';
+import player from 'lottie-web';
+
+export function playerFactory() {
+  return import('lottie-web');
+}
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SupermercadoComponent,
+    AplicacionComponent,
+    UsuarioComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    LottieModule.forRoot({ player: playerFactory })
   ],
   providers: [],
   bootstrap: [AppComponent]
