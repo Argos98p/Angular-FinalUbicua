@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { UsuarioServiceService } from '../servicios/usuario-service.service';
+
+
+
+
 
 @Component({
   selector: 'app-usuario',
@@ -8,6 +13,10 @@ import { UsuarioServiceService } from '../servicios/usuario-service.service';
   styleUrls: ['./usuario.component.css']
 })
 export class UsuarioComponent implements OnInit {
+  
+
+
+  cedula = new FormControl('');
 
   constructor(
     private usuarioService:UsuarioServiceService,
@@ -17,15 +26,13 @@ export class UsuarioComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log('entra');
     
-    this.activateRoute.parent?.params.subscribe(async params=>{
-      console.log('params'+params);
-      
-      const user= await this.usuarioService.getByCI(params['ci']);
-      console.log(user);
-      
-    })
+  } 
+
+  async onBuscar(){
+    const user = await this.usuarioService.getByCI(this.cedula.value)
+    console.log(user);
+            
   }
 
 }

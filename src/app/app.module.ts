@@ -10,6 +10,7 @@ import { UsuarioComponent } from './usuario/usuario.component';
 
 import { LottieModule } from 'ngx-lottie';
 import player from 'lottie-web';
+import { ReactiveFormsModule } from '@angular/forms';
 
 export function playerFactory() {
   return import('lottie-web');
@@ -26,7 +27,8 @@ export function playerFactory() {
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    LottieModule.forRoot({ player: playerFactory })
+    LottieModule.forRoot({ player: playerFactory }),
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

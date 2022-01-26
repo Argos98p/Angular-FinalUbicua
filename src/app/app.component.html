@@ -1,22 +1,66 @@
-<!-- <h1 class="text-center">
+<h1 class="text-center">
   Proyecto Final Computacion Ubicua: Simulacion de Supermercado
 </h1>
 
 <div class="container-fluid">
   <div class="row">
     <div class="col-lg-6 col-md-12">
-      <app-supermercado></app-supermercado>
+      <div class="contenedor">
+        <div class="item-1 seccion"></div>
+        <div class="item-2 espacio my-auto">
+          <button class="btn-nombre btn btn-outline-secondary" (click)="onClickSeccion(id='1','lacteos')">Lacteos</button>
+          <ng-lottie class=" text-center my-auto" height="auto" [ngClass]="{'oculto': id != '1' }" [options]="person">
+          </ng-lottie>
+        </div>
+        <div class="item-3 seccion"></div>
+        <div class="item-4 espacio my-auto">
+          <button class="btn-nombre btn btn-outline-danger " (click)="onClickSeccion(id='2','carnicos')">Carnicos</button>
+          <ng-lottie class=" text-center my-auto oculto" height="auto" [ngClass]="{'oculto': id != '2' }"
+            [options]="person"></ng-lottie>
+        </div>
+        <div class="item-5 seccion"></div>
+        <div class="item-6 espacio my-auto">
+          <button class="btn-nombre btn btn-outline-success" (click)="onClickSeccion(id='3','verdurasyfrutas')">Frutas y verduras</button>
+          <ng-lottie class=" text-center my-auto oculto" height="auto" [ngClass]="{'oculto': id != '3' }"
+            [options]="person"></ng-lottie>
+        </div>
+        <div class="item-7 seccion"></div>
+
+        <div class="item-8 corredor"></div>
+
+        <div class="item-9 seccion"></div>
+        <div class="item-10 espacio my-auto">
+          <button class="btn-nombre btn btn-outline-primary" (click)="onClickSeccion(id='4','aseopersonal')">Aseo personal</button>
+          <ng-lottie class=" text-center my-auto oculto" height="auto" [ngClass]="{'oculto': id != '4' }"
+            [options]="person"></ng-lottie>
+        </div>
+        <div class="item-11 seccion"></div>
+        <div class="item-12 espacio my-auto ">
+          <button class="btn-nombre btn btn-outline-dark" (click)="onClickSeccion(id='5','limpieza')">Limpieza</button>
+          <ng-lottie class=" text-center my-auto oculto" height="auto" [ngClass]="{'oculto': id != '5' }"
+            [options]="person"></ng-lottie>
+        </div>
+        <div class="item-13 seccion"></div>
+        <div class="item-14 espacio my-auto">
+          <button class="btn-nombre btn btn-outline-warning" (click)="onClickSeccion(id='6','abaceria')">Abaceria 1</button>
+          <ng-lottie class=" text-center my-auto oculto" height="auto" [ngClass]="{'oculto': id != '6' }"
+            [options]="person"></ng-lottie>
+        </div>
+        <div class="item-15 seccion"></div>
+      </div>
     </div>
 
     <div class="col-6">
-      <div class="row">
-        <div class="col-12">
-
+      <div class="row mt-4">
+        <div class="col-12 ">
           <div class="input-group mb-3">
             <div class="input-group-prepend">
               <span class="input-group-text" id="basic-addon1">C.I.</span>
             </div>
-            <input type="text" class="form-control" placeholder="cedula de identidad" aria-label="Username" aria-describedby="basic-addon1">
+            <input type="text" class="form-control" [formControl]="cedula" placeholder="cedula de identidad"
+              aria-label="Username" aria-describedby="basic-addon1">
+
+            <button class="ml-2 btn btn-primary" (click)="onBuscar()">Buscar</button>
           </div>
         </div>
 
@@ -25,44 +69,61 @@
         <div class="col-12">
           <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-12">
-        
-        
-                    <div class="iphone-x">
-                        <i>Speaker</i>
-                        <b>Camera</b>
-                        <s>10:24</s>
+              <div class="col-lg-6 col-md-12">
+
+
+                <div class="iphone-x">
+                  <i>Speaker</i>
+                  <b>Camera</b>
+                  <s>10:24</s>
+
+                  <div class="contenido-cell  h-100">
+
+                    <h5 class="text-center mt-2 text-light font-weight-bold">
+                      Supermercado Ubicuo
+                    </h5>
+                    <div class="mt-5" >
+                      <ng-lottie class=" text-center my-auto" [ngClass]="{'oculto': animacion_celular}" height="auto" [options]="options"></ng-lottie>
+                      
+                      <div *ngIf="verDatosUsuario === true">
+                        <p>Usuario: {{usuario.nombre}} {{usuario.apellido}}</p>
+                        <p>Correo: {{usuario.email}} </p>    
+                        <ng-lottie class=" text-center my-auto"  height="auto" [options]="load"></ng-lottie>
+                   
+                      </div>
+
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+              <div class="col-lg-6 col-md-12">
+
+                <div *ngFor="let producto of productos">
+                  {{producto.nombre}}
+                  {{producto.precio}}
+                </div>
+
+                <!--  <div class="iphone-x">
+                  <i>Speaker</i>
+                  <b>Camera</b>
+                  <s>10:24</s>
+                  <div class="contenido-cell">
                     
-                        <div class="contenido-cell  h-100">
-        
-                          <app-aplicacion></app-aplicacion>
-                            
-        
-                        </div>
-                      </div>
-                  
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="iphone-x">
-                        <i>Speaker</i>
-                        <b>Camera</b>
-                        <s>10:24</s>
-                        <div class="contenido-cell">        
-                          <app-aplicacion></app-aplicacion>
-                        </div>
-                        
-                      </div>
-                </div>
+                  </div>
+
+                </div> -->
+              </div>
             </div>
-        
-        
-        
-        </div>
-        
-          
-          
+
+
+
+          </div>
+
+
+
         </div>
       </div>
     </div>
   </div>
-</div> -->
+</div>

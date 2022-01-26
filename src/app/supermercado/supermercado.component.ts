@@ -12,4 +12,8 @@ export class SupermercadoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onLacteos(){
+    console.log('click en lacteos');
+    
+  }
 }

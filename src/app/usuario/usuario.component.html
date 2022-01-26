@@ -1,1 +1,12 @@
-<p>usuario works!</p>
+
+
+<div class="input-group mb-3">
+    <div class="input-group-prepend">
+      <span class="input-group-text" id="basic-addon1">C.I.</span>
+    </div>
+    <input type="text" class="form-control" [formControl]="cedula" placeholder="cedula de identidad" aria-label="Username" aria-describedby="basic-addon1">
+    
+    <button class="ml-2 btn btn-primary" (click)="onBuscar()">Buscar</button>
+  </div>
+
+ 

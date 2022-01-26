@@ -6,7 +6,7 @@ export class Usuario{
 
 
 
-    constructor(pnombre:string,papellido:string, ci:string,pemail:string){
+    constructor(pnombre:string='',papellido:string='', ci:string='',pemail:string=''){
         this.nombre=pnombre;
         this.apellido=papellido;
         this.email=pemail;
